@@ -1,101 +1,121 @@
 [
     {
-      "serviceImage": "service1.jpg",
+      "serviceImage": "https://i.ibb.co/02ky54m/Photo-Capture.jpg",
       "serviceName": "Photo Capture",
-      "serviceDescription": "High-quality photography for all occasions.",
+      "serviceDescription": "High-quality photography for all occasions. We capture your special moments with precision and creativity.",
       "serviceProvider": {
         "image": "provider1.jpg",
-        "name": "John Smith"
+        "name": "John Smith",
+        "location": "New York, NY",
+        "shortDescription": "Passionate photographer with 10+ years of experience."
       },
       "servicePrice": 100
     },
     {
-      "serviceImage": "service2.jpg",
+      "serviceImage": "https://i.ibb.co/8cGGt0j/Banner-Design.jpg",
       "serviceName": "Banner Design",
-      "serviceDescription": "Eye-catching banners and graphics.",
+      "serviceDescription": "Eye-catching banners and graphics designed to make your brand stand out. Our creative designs attract attention.",
       "serviceProvider": {
         "image": "provider2.jpg",
-        "name": "Sarah Johnson"
+        "name": "Sarah Johnson",
+        "location": "Los Angeles, CA",
+        "shortDescription": "Experienced graphic designer specializing in branding."
       },
       "servicePrice": 75
     },
     {
-      "serviceImage": "service3.jpg",
+      "serviceImage": "https://i.ibb.co/19Kt8xq/Business-Card-Design.jpg",
       "serviceName": "Business Card Design",
-      "serviceDescription": "Custom business card designs.",
+      "serviceDescription": "Custom business card designs that leave a lasting impression. Your unique business card reflects your brand.",
       "serviceProvider": {
         "image": "provider3.jpg",
-        "name": "Michael Brown"
+        "name": "Michael Brown",
+        "location": "Chicago, IL",
+        "shortDescription": "Graphic designer passionate about creating stunning business cards."
       },
       "servicePrice": 50
     },
     {
-      "serviceImage": "service4.jpg",
+      "serviceImage": "https://i.ibb.co/b2n3s9q/Brochure-Design.jpg",
       "serviceName": "Brochure Design",
-      "serviceDescription": "Unique brochure designs to impress.",
+      "serviceDescription": "Unique brochure designs to impress your audience. We deliver compelling brochures that tell your story.",
       "serviceProvider": {
         "image": "provider4.jpg",
-        "name": "Emily Davis"
+        "name": "Emily Davis",
+        "location": "Houston, TX",
+        "shortDescription": "Expert in creating captivating brochures for businesses."
       },
       "servicePrice": 80
     },
     {
-      "serviceImage": "service5.jpg",
+      "serviceImage": "https://i.ibb.co/JH6Qvdq/Photo-Editing.jpg",
       "serviceName": "Photo Editing",
-      "serviceDescription": "Enhancing and retouching your photos.",
+      "serviceDescription": "Enhancing and retouching your photos to perfection. We make your memories even more beautiful.",
       "serviceProvider": {
         "image": "provider5.jpg",
-        "name": "Daniel White"
+        "name": "Daniel White",
+        "location": "Miami, FL",
+        "shortDescription": "Passionate about photo editing and restoration."
       },
       "servicePrice": 40
     },
     {
-      "serviceImage": "service6.jpg",
+      "serviceImage": "https://i.ibb.co/CtPhFYx/Logo-Design.jpg",
       "serviceName": "Logo Design",
-      "serviceDescription": "Creating memorable logos for your brand.",
+      "serviceDescription": "Creating memorable logos for your brand. We design logos that leave a lasting impression.",
       "serviceProvider": {
         "image": "provider6.jpg",
-        "name": "Olivia Clark"
+        "name": "Olivia Clark",
+        "location": "San Francisco, CA",
+        "shortDescription": "Experienced logo designer dedicated to branding."
       },
       "servicePrice": 60
     },
     {
-      "serviceImage": "service7.jpg",
+      "serviceImage": "https://i.ibb.co/5TkHC35/Digital-Art.jpg",
       "serviceName": "Digital Art",
-      "serviceDescription": "Unique and personalized digital artwork.",
+      "serviceDescription": "Unique and personalized digital artwork that reflects your style. We bring your ideas to life through art.",
       "serviceProvider": {
         "image": "provider7.jpg",
-        "name": "William Harris"
+        "name": "William Harris",
+        "location": "Seattle, WA",
+        "shortDescription": "Digital artist with a passion for creativity."
       },
       "servicePrice": 120
     },
     {
-      "serviceImage": "service8.jpg",
+      "serviceImage": "https://i.ibb.co/pKcBWXw/Poster-Design.jpg",
       "serviceName": "Poster Design",
-      "serviceDescription": "Creative posters for your events.",
+      "serviceDescription": "Creative posters for your events and promotions. We design posters that grab attention.",
       "serviceProvider": {
         "image": "provider8.jpg",
-        "name": "Sophia Martin"
+        "name": "Sophia Martin",
+        "location": "Boston, MA",
+        "shortDescription": "Poster design specialist with a creative edge."
       },
       "servicePrice": 55
     },
     {
-      "serviceImage": "service9.jpg",
+      "serviceImage": "https://i.ibb.co/mBfd9w4/Flyer-Design.jpg",
       "serviceName": "Flyer Design",
-      "serviceDescription": "Eye-catching flyers for promotions.",
+      "serviceDescription": "Eye-catching flyers for promotions and marketing campaigns. Our designs drive engagement.",
       "serviceProvider": {
         "image": "provider9.jpg",
-        "name": "Liam Anderson"
+        "name": "Liam Anderson",
+        "location": "Dallas, TX",
+        "shortDescription": "Experienced in crafting effective flyer designs."
       },
       "servicePrice": 45
     },
     {
-      "serviceImage": "service10.jpg",
+      "serviceImage": "https://i.ibb.co/yRDt8Pg/Social-Media-Graphics.jpg",
       "serviceName": "Social Media Graphics",
-      "serviceDescription": "Custom graphics for social media campaigns.",
+      "serviceDescription": "Custom graphics for social media campaigns. We help your brand shine in the digital world.",
       "serviceProvider": {
         "image": "provider10.jpg",
-        "name": "Ava Wilson"
+        "name": "Ava Wilson",
+        "location": "Denver, CO",
+        "shortDescription": "Passionate about creating social media graphics."
       },
       "servicePrice": 70
     }

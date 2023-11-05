@@ -1,0 +1,103 @@
+[
+    {
+      "serviceImage": "service1.jpg",
+      "serviceName": "Photo Capture",
+      "serviceDescription": "High-quality photography for all occasions.",
+      "serviceProvider": {
+        "image": "provider1.jpg",
+        "name": "John Smith"
+      },
+      "servicePrice": 100
+    },
+    {
+      "serviceImage": "service2.jpg",
+      "serviceName": "Banner Design",
+      "serviceDescription": "Eye-catching banners and graphics.",
+      "serviceProvider": {
+        "image": "provider2.jpg",
+        "name": "Sarah Johnson"
+      },
+      "servicePrice": 75
+    },
+    {
+      "serviceImage": "service3.jpg",
+      "serviceName": "Business Card Design",
+      "serviceDescription": "Custom business card designs.",
+      "serviceProvider": {
+        "image": "provider3.jpg",
+        "name": "Michael Brown"
+      },
+      "servicePrice": 50
+    },
+    {
+      "serviceImage": "service4.jpg",
+      "serviceName": "Brochure Design",
+      "serviceDescription": "Unique brochure designs to impress.",
+      "serviceProvider": {
+        "image": "provider4.jpg",
+        "name": "Emily Davis"
+      },
+      "servicePrice": 80
+    },
+    {
+      "serviceImage": "service5.jpg",
+      "serviceName": "Photo Editing",
+      "serviceDescription": "Enhancing and retouching your photos.",
+      "serviceProvider": {
+        "image": "provider5.jpg",
+        "name": "Daniel White"
+      },
+      "servicePrice": 40
+    },
+    {
+      "serviceImage": "service6.jpg",
+      "serviceName": "Logo Design",
+      "serviceDescription": "Creating memorable logos for your brand.",
+      "serviceProvider": {
+        "image": "provider6.jpg",
+        "name": "Olivia Clark"
+      },
+      "servicePrice": 60
+    },
+    {
+      "serviceImage": "service7.jpg",
+      "serviceName": "Digital Art",
+      "serviceDescription": "Unique and personalized digital artwork.",
+      "serviceProvider": {
+        "image": "provider7.jpg",
+        "name": "William Harris"
+      },
+      "servicePrice": 120
+    },
+    {
+      "serviceImage": "service8.jpg",
+      "serviceName": "Poster Design",
+      "serviceDescription": "Creative posters for your events.",
+      "serviceProvider": {
+        "image": "provider8.jpg",
+        "name": "Sophia Martin"
+      },
+      "servicePrice": 55
+    },
+    {
+      "serviceImage": "service9.jpg",
+      "serviceName": "Flyer Design",
+      "serviceDescription": "Eye-catching flyers for promotions.",
+      "serviceProvider": {
+        "image": "provider9.jpg",
+        "name": "Liam Anderson"
+      },
+      "servicePrice": 45
+    },
+    {
+      "serviceImage": "service10.jpg",
+      "serviceName": "Social Media Graphics",
+      "serviceDescription": "Custom graphics for social media campaigns.",
+      "serviceProvider": {
+        "image": "provider10.jpg",
+        "name": "Ava Wilson"
+      },
+      "servicePrice": 70
+    }
+  ]
+  

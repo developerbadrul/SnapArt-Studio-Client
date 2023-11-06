@@ -2,16 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const useAuth = () => {
-    const {loding,
-        setLoding,
-        createUserWithPaaword
-    } = useContext(AuthContext)
-    
-    return {
-        loding,
-        setLoding,
-        createUserWithPaaword
-    }
+    const authHook = useContext(AuthContext)
+    return authHook;
 };
 
 export default useAuth;

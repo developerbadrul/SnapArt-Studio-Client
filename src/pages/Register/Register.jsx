@@ -1,19 +1,18 @@
 import useAuth from "../../hook/useAuth";
 
-const Register = () => {
 
+const Register = () => {
+    const {loding, setLoding, createUserWithPass} = useAuth();
     const handleSignUp = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
-        const { loding,
-            setLoding,
-            createUserWithPaaword
-        } = useAuth;
-
-        console.log(loding);
+        
+        createUserWithPass(email, password)
+        .then(result => console.log(result.user))
+        .catch(err => console.log(err))
 
     }
     return (

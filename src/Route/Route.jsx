@@ -9,6 +9,7 @@ import AddShop from "../pages/AddShop/AddShop";
 import ShopList from "../pages/ShopList/ShopList";
 import Services from "../pages/Services/Services";
 import AddNewService from "../pages/AddNewService/AddNewService";
+import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
 
  const router = createBrowserRouter([
     {
@@ -47,6 +48,11 @@ import AddNewService from "../pages/AddNewService/AddNewService";
                 path:"/services",
                 element: <Services></Services>,
                 loader: ()=> fetch("http://localhost:5000/services")
+            },
+            {
+                path:"/services/:id",
+                element: <SingleServiceDetails></SingleServiceDetails>,
+                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path:"/add-new-service",

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button, Card } from "flowbite-react";
 import UserDammy from "../../assets/user-picture.png"
+import { Link } from "react-router-dom";
 const Service = ({ service }) => {
     return (
         <Card
@@ -30,7 +31,7 @@ const Service = ({ service }) => {
                 <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">${service.servicePrice}
                 </div>
             </div>
-            <Button gradientMonochrome="success" className="font-bold">View Service Details</Button>
+            <Link to={`http://localhost:5173/services/${service._id}`}><Button gradientMonochrome="success" className="font-bold w-full">View Service Details</Button></Link>
         </Card>
     );
 };

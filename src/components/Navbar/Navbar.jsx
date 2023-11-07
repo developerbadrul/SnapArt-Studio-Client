@@ -2,9 +2,10 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../assets/Logo.png"
 import useAuth from "../../hook/useAuth";
 import UserDammy from "../../assets/user-picture.png"
+import { Spinner } from "flowbite-react";
 
 const Navbar = () => {
-    const { loggedUser, logOut } = useAuth();
+    const {loding, loggedUser, logOut } = useAuth();
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
@@ -19,6 +20,13 @@ const Navbar = () => {
     </>
 
     const handleLogout = () => {
+
+        if (loding) {
+            return <div className="text-center">
+                <Spinner color="success" aria-label="Success spinner example" size="xl" />
+            </div>
+        }
+        
         logOut()
             .then(result => {
                 console.log(result, "Logout");

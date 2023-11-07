@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
+        setLoding(true)
         return signOut(auth)
     }
 

@@ -11,6 +11,7 @@ import Services from "../pages/Services/Services";
 import AddNewService from "../pages/AddNewService/AddNewService";
 import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
  const router = createBrowserRouter([
     {
@@ -47,21 +48,21 @@ import Dashboard from "../pages/Dashboard/Dashboard";
             },
             {
                 path:"/services",
-                element: <Services></Services>,
+                element: <PrivateRoute><Services></Services></PrivateRoute>,
                 loader: ()=> fetch("http://localhost:5000/services")
             },
             {
                 path:"/services/:id",
-                element: <SingleServiceDetails></SingleServiceDetails>,
+                element: <PrivateRoute><SingleServiceDetails></SingleServiceDetails></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path:"/add-new-service",
-                element: <AddNewService></AddNewService>
+                element: <PrivateRoute><AddNewService></AddNewService></PrivateRoute>
             },
             {
                 path:"/dashboard",
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             },
         ]
     }

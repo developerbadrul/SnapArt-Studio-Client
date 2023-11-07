@@ -1,20 +1,30 @@
+import { Spinner } from "flowbite-react";
 import SocialMediaSignIn from "../../components/SocialMediaSignIn/SocialMediaSignIn";
 import useAuth from "../../hook/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { userLogin, loggedUser } = useAuth();
-
+  const { userLogin, loggedUser, loding } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = e => {
     e.preventDefault()
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
+    if (loding) {
+      return <div className="text-center">
+        <Spinner color="success" aria-label="Success spinner example" size="xl" />
+      </div>
+    }
+
     userLogin(email, password)
-    .then(result=>{
-      console.log(result.user);
-    })
-    .catch(err=> console.log(err))
+      .then(result => {
+        navigate(location?.state ? location.state : "/")
+        console.log(result.user);
+      })
+      .catch(err => console.log(err))
   }
 
   console.log("After Login", loggedUser);
@@ -44,6 +54,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
+              {/* <input className="btn btn-primary" type="submit" value="Login" /> */}
             </div>
           </form>
           <SocialMediaSignIn></SocialMediaSignIn>

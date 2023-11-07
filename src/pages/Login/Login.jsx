@@ -1,3 +1,4 @@
+import SocialMediaSignIn from "../../components/SocialMediaSignIn/SocialMediaSignIn";
 import useAuth from "../../hook/useAuth";
 
 const Login = () => {
@@ -45,6 +46,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <SocialMediaSignIn></SocialMediaSignIn>
         </div>
       </div>
     </div>

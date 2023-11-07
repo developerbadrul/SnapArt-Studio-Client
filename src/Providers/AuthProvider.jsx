@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../Utility/firebase.init";
 
 
@@ -9,6 +9,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [loding, setLoding] = useState(true)
     const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
     const [loggedUser, setLoggedUser] = useState(null)
 
     const createUserWithPass = (email, password) => {
@@ -16,12 +17,17 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const userLogin = (email, password) =>{
+    const userLogin = (email, password) => {
         setLoding(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const logOut = () =>{
+    const loginWithGoogle = () => {
+        setLoding(true)
+        return signInWithPopup(auth, googleProvider)
+    }
+
+    const logOut = () => {
         return signOut(auth)
     }
 
@@ -31,24 +37,25 @@ const AuthProvider = ({ children }) => {
             setLoggedUser(currentUser);
             setLoding(false)
         });
-        return () =>{
+        return () => {
             unSubscribe()
         }
     }, [auth])
 
-        const value = {
-            loding,
-            setLoding,
-            createUserWithPass,
-            userLogin,
-            logOut,
-            loggedUser
-        }
-        return (
-            <AuthContext.Provider value={value}>
-                {children}
-            </AuthContext.Provider>
-        );
-    };
+    const value = {
+        loding,
+        setLoding,
+        createUserWithPass,
+        userLogin,
+        loginWithGoogle,
+        logOut,
+        loggedUser
+    }
+    return (
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
 
-    export default AuthProvider;
+export default AuthProvider;

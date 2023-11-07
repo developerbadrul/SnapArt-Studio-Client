@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Service from "./Service";
+import { Button } from "flowbite-react";
 
 const Services = () => {
     const allServices = useLoaderData();
@@ -12,6 +13,7 @@ const Services = () => {
                     allServices.map(service => <Service key={service._id} service={service}></Service>)
                 }
             </div>
+            <Button gradientMonochrome="info">Info</Button>
         </div>
     );
 };

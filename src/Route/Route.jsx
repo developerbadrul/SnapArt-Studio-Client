@@ -10,6 +10,7 @@ import ShopList from "../pages/ShopList/ShopList";
 import Services from "../pages/Services/Services";
 import AddNewService from "../pages/AddNewService/AddNewService";
 import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
  const router = createBrowserRouter([
     {
@@ -17,7 +18,7 @@ import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
         element: <Root></Root>,
         children:[
             {
-                path:"/",
+                index:"/",
                 element: <Home></Home>
             },
             {
@@ -57,6 +58,10 @@ import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
             {
                 path:"/add-new-service",
                 element: <AddNewService></AddNewService>
+            },
+            {
+                path:"/dashboard",
+                element: <Dashboard></Dashboard>
             },
         ]
     }

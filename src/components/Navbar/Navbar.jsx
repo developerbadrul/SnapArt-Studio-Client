@@ -4,18 +4,27 @@ import useAuth from "../../hook/useAuth";
 import UserDammy from "../../assets/user-picture.png"
 
 const Navbar = () => {
-    const {loggedUser} = useAuth();
+    const { loggedUser, logOut } = useAuth();
     const links = <>
-    <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/login">Login</NavLink></li>
-    <li><NavLink to="/register">Register</NavLink></li>
-    <li><NavLink to="/add-operator">Add Operator</NavLink></li>
-    <li><NavLink to="/operator-list">Operator List</NavLink></li>
-    <li><NavLink to="/add-shop">Add Shop</NavLink></li>
-    <li><NavLink to="/shop-list">Shop List</NavLink></li>
-    <li><NavLink to="/services">Services</NavLink></li>
-    <li><NavLink to="/add-new-service">Add Service</NavLink></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/login">Login</NavLink></li>
+        <li><NavLink to="/register">Register</NavLink></li>
+        <li><NavLink to="/add-operator">Add Operator</NavLink></li>
+        <li><NavLink to="/operator-list">Operator List</NavLink></li>
+        <li><NavLink to="/add-shop">Add Shop</NavLink></li>
+        <li><NavLink to="/shop-list">Shop List</NavLink></li>
+        <li><NavLink to="/services">Services</NavLink></li>
+        <li><NavLink to="/add-new-service">Add Service</NavLink></li>
+        <li><NavLink to="/dashboard">DashBoard</NavLink></li>
     </>
+
+    const handleLogout = () => {
+        logOut()
+            .then(result => {
+                console.log(result, "Logout");
+            })
+            .catch(err => console.log(err.message))
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -41,26 +50,31 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src={loggedUser.photoURL || UserDammy} />
+            {
+                loggedUser ?
+                    <div className="navbar-end">
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={loggedUser?.photoURL ? loggedUser.photoURL : UserDammy} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </a>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li onClick={handleLogout}><a>Logout</a></li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
-                {loggedUser.displayName || loggedUser.email}
-            </div>
+                        {loggedUser?.displayName ? loggedUser.displayName : loggedUser?.email}
+                    </div>
+                    : <div className="navbar-end"></div>
+
+            }
         </div>
     );
 };

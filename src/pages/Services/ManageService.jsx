@@ -11,7 +11,7 @@ const ManageService = () => {
     const clientEmail = loggedUser.email;
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${clientEmail}`)
+        axios.get(`https://snapart-server.vercel.app/orders/${clientEmail}`)
             .then((response) => {
                 setOrders(response.data);
                 setLoading(false);

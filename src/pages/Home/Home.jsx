@@ -11,14 +11,14 @@ const Home = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/services")
+        axios.get("https://snapart-server.vercel.app/services")
             .then((response) => {
                 console.log(response);
                 setLoadServices(response.data);
                 setLoading(false);
             })
             .catch((err) => {
-                console.error("Error fetching data:", err);
+                // console.error("Error fetching data:", err);
                 setError(err);
                 setLoading(false);
             });

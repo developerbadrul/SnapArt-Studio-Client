@@ -51,12 +51,11 @@ import Schedule from "../pages/Schedule/Schedule";
             {
                 path:"/services",
                 element: <PrivateRoute><Services></Services></PrivateRoute>,
-                loader: ()=> fetch("http://localhost:5000/services")
             },
             {
                 path:"/services/:id",
                 element: <PrivateRoute><SingleServiceDetails></SingleServiceDetails></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://snapart-server.vercel.app/services/${params.id}`)
             },
             {
                 path:"/add-new-service",

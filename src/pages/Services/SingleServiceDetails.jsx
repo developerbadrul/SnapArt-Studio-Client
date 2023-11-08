@@ -1,4 +1,4 @@
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import UserDammy from "../../assets/user-picture.png"
 import { Button, Card, Datepicker, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
@@ -28,27 +28,41 @@ const SingleServiceDetails = () => {
         const OrderDate = form.order_date.value;
         const ServicePrice = form.Service_Price.value;
         const SpecialInstruction = form.Special_instruction.value;
+        const status = "pending";
 
         const clientOrder = {
             serviceName, serviceProviderName, ServiceProviderEmail, ClientEmail, OrderDate, ServicePrice,
-            SpecialInstruction
+            SpecialInstruction, status
         }
 
 
-        axios.post("http://localhost:5000/orders", clientOrder)
-            .then((data) => { 
-                if (data.data.acknowledged) {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "New Order Placed Successfully",
-                        icon: "success"
-                    });
-                }
-                navigate("/services")
+        axios.post("https://snapart-server.vercel.app/orders", clientOrder)
+            .then((data) => {
+                Swal.fire({
+                    title: "Place Order?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3E8245",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, Confirm it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (data.data.acknowledged) {
+                            Swal.fire({
+                                title: "Success!",
+                                text: "New Order Placed Successfully",
+                                icon: "success"
+                            });
+                            navigate("/services"); // Navigate here when the order is successfully placed.
+                        }
+                    }
+                });
             })
             .catch(error => {
                 console.error(error);
             });
+
         // .catch(err => console.log(err))
         // console.log(clientOrder);
     }
@@ -173,9 +187,9 @@ const SingleServiceDetails = () => {
                                 ></Textarea>
                             </div>
                         </div>
-                        <div>
 
-                            <Button gradientMonochrome="success" className="mx-auto font-bold my-3"><input type="submit" className="mx-auto font-bold my-3" value="Order Confirm" /></Button>
+                        <div className="my-5">
+                            <input type="submit" className="mx-auto my-5 p-3 font-bold btn btn-neutral block" value="Order Confirm" />
                         </div>
                     </form>
                 </Modal.Body>

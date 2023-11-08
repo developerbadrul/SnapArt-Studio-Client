@@ -1,15 +1,17 @@
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import UserDammy from "../../assets/user-picture.png"
 import { Button, Card, Datepicker, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 import useAuth from "../../hook/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const SingleServiceDetails = () => {
     const { loggedUser } = useAuth();
     const singleService = useLoaderData()
     const [openModal, setOpenModal] = useState(false);
+    const navigate = useNavigate();
     const onCloseModal = () => {
         setOpenModal(false);
     }
@@ -31,21 +33,23 @@ const SingleServiceDetails = () => {
             serviceName, serviceProviderName, ServiceProviderEmail, ClientEmail, OrderDate, ServicePrice,
             SpecialInstruction
         }
-        
-        axios.post('/user', {
-            firstName: 'Fred',
-            lastName: 'Flintstone'
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+
 
         axios.post("http://localhost:5000/orders", clientOrder)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then((data) => { 
+                if (data.data.acknowledged) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "New Order Placed Successfully",
+                        icon: "success"
+                    });
+                }
+                navigate("/services")
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        // .catch(err => console.log(err))
         // console.log(clientOrder);
     }
     return (
@@ -85,7 +89,7 @@ const SingleServiceDetails = () => {
                                 <h3>Service Name: {singleService.serviceName || UserDammy}</h3>
                             </div>
                             <div>
-                                <img src={singleService?.serviceProvider?.image ? singleService.serviceProvider.image : UserDammy} className="md:w-3/12 rounded-md" alt="" />
+                                <img src={singleService?.serviceProvider?.image ? singleService?.serviceProvider?.image : UserDammy} className="md:w-3/12 rounded-md" alt="" />
                                 <h3>Service Provider: {singleService.serviceProvider.name}</h3>
                             </div>
                         </div>
@@ -150,12 +154,14 @@ const SingleServiceDetails = () => {
                                 <div className="mb-2 block">
                                     <Label htmlFor="Service Price" value="Service Price" />
                                 </div>
-                                <TextInput
-                                    readOnly
-                                    name="Service_Price"
-                                    value={`$ ${singleService.servicePrice}`}
-                                    required
-                                />
+                                <div className="flex items-center gap-4">
+                                    <span>$</span><TextInput
+                                        readOnly
+                                        name="Service_Price"
+                                        value={singleService.servicePrice}
+                                        required
+                                    />
+                                </div>
                             </div>
                             <div className="col-span-3">
                                 <div className="mb-2 block">

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/Logo.png"
 import useAuth from "../../hook/useAuth";
 import UserDammy from "../../assets/user-picture.png"
@@ -10,9 +10,9 @@ const Navbar = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
-        <li><NavLink to="/add-operator">Add Operator</NavLink></li>
+        {/* <li><NavLink to="/add-operator">Add Operator</NavLink></li> */}
         {/* <li><NavLink to="/operator-list">Operator List</NavLink></li> */}
-        <li><NavLink to="/add-shop">Add Shop</NavLink></li>
+        {/* <li><NavLink to="/add-shop">Add Shop</NavLink></li> */}
         {/* <li><NavLink to="/shop-list">Shop List</NavLink></li> */}
         <li><NavLink to="/services">Services</NavLink></li>
         <li><NavLink to="/add-new-service">Add Service</NavLink></li>
@@ -53,7 +53,7 @@ const Navbar = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="normal-case text-xl"><img className="w-3/4" src={Logo} alt="Operater Manager  " /></a>
+                <Link to="/" className="normal-case text-xl"><img className="w-3/4" src={Logo} alt="Operater Manager  " /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

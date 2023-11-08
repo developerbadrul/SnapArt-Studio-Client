@@ -12,6 +12,8 @@ import AddNewService from "../pages/AddNewService/AddNewService";
 import SingleServiceDetails from "../pages/Services/SingleServiceDetails";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
+import ManageService from "../pages/Services/ManageService";
+import Schedule from "../pages/Schedule/Schedule";
 
  const router = createBrowserRouter([
     {
@@ -59,6 +61,14 @@ import PrivateRoute from "./PrivateRoute";
             {
                 path:"/add-new-service",
                 element: <PrivateRoute><AddNewService></AddNewService></PrivateRoute>
+            },
+            {
+                path:"/manage-service",
+                element: <PrivateRoute><ManageService></ManageService></PrivateRoute>
+            },
+            {
+                path:"/my-schedule",
+                element: <PrivateRoute><Schedule></Schedule></PrivateRoute>
             },
             {
                 path:"/dashboard",

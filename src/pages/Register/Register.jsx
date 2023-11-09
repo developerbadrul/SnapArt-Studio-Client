@@ -1,7 +1,8 @@
 import { Spinner } from "flowbite-react";
 import SocialMediaSignIn from "../../components/SocialMediaSignIn/SocialMediaSignIn";
 import useAuth from "../../hook/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
@@ -22,10 +23,12 @@ const Register = () => {
 
         createUserWithPass(email, password)
             .then(result => {
-                navigate(location?.state ? location.state : "/");
-                console.log(result.user);
+                navigate(location?.state ? location.state : "/"),
+                toast.success('Successfully Login!', result)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                toast.error(err.message)
+            })
 
     }
     return (
@@ -57,6 +60,7 @@ const Register = () => {
                         </div>
                     </form>
                     <SocialMediaSignIn></SocialMediaSignIn>
+                    <p className="text-center py-2">Already Register? <Link className="text-blue-500 font-semibold" to="/login">Login</Link></p>
                 </div>
             </div>
         </div>

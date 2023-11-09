@@ -1,7 +1,8 @@
 import { Spinner } from "flowbite-react";
 import SocialMediaSignIn from "../../components/SocialMediaSignIn/SocialMediaSignIn";
 import useAuth from "../../hook/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { userLogin, loggedUser, loding } = useAuth();
@@ -21,19 +22,21 @@ const Login = () => {
 
     userLogin(email, password)
       .then(result => {
-        navigate(location?.state ? location.state : "/")
-        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+        toast.success('Successfully Login!', result)
+       
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        toast.error(err.message);
+      })
   }
 
   console.log("After Login", loggedUser);
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleLogin}>
@@ -58,6 +61,7 @@ const Login = () => {
             </div>
           </form>
           <SocialMediaSignIn></SocialMediaSignIn>
+          <p className="mx-auto py-5">New User? <Link state={location.state} className="link-primary" to="/register">Registration Please</Link></p>
         </div>
       </div>
     </div>

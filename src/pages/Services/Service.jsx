@@ -31,7 +31,7 @@ const Service = ({ service }) => {
                 <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">${service.servicePrice}
                 </div>
             </div>
-            <Link to={`http://localhost:5173/services/${service._id}`}><Button gradientMonochrome="success" className="font-bold w-full">View Service Details</Button></Link>
+            <Link to={`https://snapart-server.vercel.app/services/${service._id}`}><Button gradientMonochrome="success" className="font-bold w-full">View Service Details</Button></Link>
         </Card>
     );
 };

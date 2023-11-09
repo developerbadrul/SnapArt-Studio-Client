@@ -32,7 +32,6 @@ const AddNewService = () => {
             },
             servicePrice,
         }
-        // axios.post('http://localhost:5000/services', addNewService)
         axios.post('https://snapart-server.vercel.app/services', addNewService)
             .then(data => {
                 if (data.data.insertedId) {

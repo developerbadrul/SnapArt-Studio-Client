@@ -2,6 +2,7 @@ import axios from "axios";
 import { Spinner, Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hook/useAuth";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const ManageService = () => {
     const {loggedUser} = useAuth();
@@ -33,6 +34,7 @@ const ManageService = () => {
                 <div>Error: {error.message}</div>
             ) : (
                 <Table striped>
+                    <PageTitle title={"SnapArt || Manage Service"}></PageTitle>
                     <Table.Head>
                         <Table.HeadCell>Service Name</Table.HeadCell>
                         <Table.HeadCell>Service Provider</Table.HeadCell>

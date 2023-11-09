@@ -5,21 +5,30 @@ import UserDammy from "../../assets/user-picture.png"
 import { Spinner } from "flowbite-react";
 
 const Navbar = () => {
-    const {loding, loggedUser, logOut } = useAuth();
-    const links = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
-        {/* <li><NavLink to="/add-operator">Add Operator</NavLink></li> */}
-        {/* <li><NavLink to="/operator-list">Operator List</NavLink></li> */}
-        {/* <li><NavLink to="/add-shop">Add Shop</NavLink></li> */}
-        {/* <li><NavLink to="/shop-list">Shop List</NavLink></li> */}
-        <li><NavLink to="/services">Services</NavLink></li>
-        <li><NavLink to="/add-new-service">Add Service</NavLink></li>
-        <li><NavLink to="/manage-service">Manage Service</NavLink></li>
-        <li><NavLink to="/my-schedule">My Schedule</NavLink></li>
-        <li><NavLink to="/dashboard">DashBoard</NavLink></li>
-    </>
+    const { loding, loggedUser, logOut } = useAuth();
+    const links = (
+        <ul>
+            {!loggedUser ? (
+                <div className="flex">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/services">Services</NavLink></li>
+                    <li><NavLink to="/login">Login</NavLink></li>
+                    {/* Add more links for logged-in users here */}
+                </div>
+            ) : (
+                <div className="flex">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/add-new-service">Add Service</NavLink></li>
+                    <li><NavLink to="/services">Services</NavLink></li>
+                    <li><NavLink to="/manage-service">Manage Service</NavLink></li>
+                    <li><NavLink to="/my-schedule">My Schedule</NavLink></li>
+                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                    {/* Add more links for non-logged-in users here */}
+                </div>
+            )}
+        </ul>
+    );
+
 
     const handleLogout = () => {
 
@@ -28,7 +37,7 @@ const Navbar = () => {
                 <Spinner color="success" aria-label="Success spinner example" size="xl" />
             </div>
         }
-        
+
         logOut()
             .then(result => {
                 console.log(result, "Logout");

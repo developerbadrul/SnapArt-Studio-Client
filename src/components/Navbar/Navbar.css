@@ -1,0 +1,45 @@
+/* Style for the parent menu (submenu) */
+.submenu {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the dashboard link */
+.dashboard-link {
+    color: #007bff; /* Change the color to your preference */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Style for the submenu content */
+.submenu-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/* Show the submenu content on hover */
+.dashboard-link:hover + .submenu-content,
+.submenu-content:hover {
+    display: block;
+}
+
+/* Style for submenu items */
+.submenu-content li {
+    margin: 5px 0;
+}
+
+/* Style for the dropdown triangle */
+.dropdown:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #007bff transparent; /* Change the color to your preference */
+}

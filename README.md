@@ -1,4 +1,7 @@
+
 Certainly, here's a sample README file for your client-side project for SnapArt Studio:
+
+### Site Live Link: https://mern-stack-a17b3.web.app
 
 ```markdown
 # SnapArt Studio - Client-Side
@@ -39,7 +42,7 @@ Thank you for choosing SnapArt Studio for your creative endeavors!
 
 ---
 
-**Visit SnapArt Studio:** [https://mern-stack-a17b3.web.app](https://mern-stack-a17b3.web.app/)
+**Visit SnapArt Studio:** [https://mern-stack-a17b3.web.app]
 ```
 
 This README provides an overview of the key features, technologies used, and instructions for running the client-side application. You can customize it further with specific details about your project.

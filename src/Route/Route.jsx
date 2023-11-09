@@ -14,11 +14,13 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import ManageService from "../pages/Services/ManageService";
 import Schedule from "../pages/Schedule/Schedule";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
  const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 index:"/",

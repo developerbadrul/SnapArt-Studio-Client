@@ -21,7 +21,7 @@ const Navbar = () => {
                     <li><NavLink to="/add-new-service">Add Service</NavLink></li>
                     <li><NavLink to="/services">Services</NavLink></li>
                     <li><NavLink to="/manage-service">Manage Service</NavLink></li>
-                    <li><NavLink to="/my-schedule">My Schedule</NavLink></li>
+                    {/* <li><NavLink to="/my-schedule">My Schedule</NavLink></li> */}
                     {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li> */}
                     {/* Add more links for non-logged-in users here */}
                 </div>

@@ -4,6 +4,7 @@ import Service from "../Services/Service";
 import { Button, Spinner } from "flowbite-react";
 import { Link } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const Home = () => {
     const [loadServices, setLoadServices] = useState(null);
@@ -28,6 +29,7 @@ const Home = () => {
 
     return (
         <div>
+            <PageTitle title={Home}></PageTitle>
             {/* banner section  */}
             <div className="w-11/12 mx-auto my-2">
             <Banner></Banner>
